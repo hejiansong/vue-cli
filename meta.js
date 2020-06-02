@@ -1,5 +1,5 @@
 module.exports = {
-  'helpers': {
+  helpers: {
     'if_or': function (v1, v2, options) {
       if (v1 || v2) {
         return options.fn(this);
@@ -10,7 +10,14 @@ module.exports = {
       return templateVersion
     }
   },
-  'prompts': {
+  prompts: {
+    'default': {
+      'type': 'list',
+      'message': 'Please pick a preset: (Use arrow keys)',
+      'choices': [
+        {}
+      ]
+    },
     'name': {
       'type': 'string',
       'required': true,
@@ -32,10 +39,6 @@ module.exports = {
     'vuex': {
       'type': 'confirm',
       'message':'Install vuex?'
-    },
-    'isMobile': {
-      'type': 'confirm',
-      'message': 'is Mobile project?'
     },
     'lint': {
       'type': 'confirm',
@@ -81,7 +84,6 @@ module.exports = {
     'test/e2e/**/*': 'e2e',
     'src/store/**/*': 'vuex',
     'src/router/**/*': 'router',
-    'src/css/min.scss': 'isMobile',
     'static/js/lib-flexible.js': 'isMobile',
   },
   'completeMessage': 'To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack'
